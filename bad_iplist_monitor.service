@@ -1,9 +1,9 @@
 [Unit]
-Description=Your Python Script Service
+Description=Bad IP List Monitor
 After=network.target
 
 [Service]
-User=youruser
+User=someuser
 ExecStart=/usr/bin/python3 /path/to/badiplist_monitor_copy.py
 Restart=on-failure
 
