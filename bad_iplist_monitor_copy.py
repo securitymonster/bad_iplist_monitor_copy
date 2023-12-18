@@ -18,6 +18,7 @@ DESTINATION_PATH = config['SCP']['DestinationPath']
 SSH_KEY_PATH = config['SCP']['SSHKeyPath']
 MONITOR_PATH = config['SCP']['MonitorPath']
 LOG_FILE = config['SCP']['LogFile']
+POLLING_INTERVAL = int(config['SCP']['PollingInterval'])  # New polling interval configuration
 
 # Setup logging
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
@@ -66,7 +67,7 @@ if __name__ == "__main__":
     observer.start()
     try:
         while True:
-            time.sleep(1)
+            time.sleep(POLLING_INTERVAL)  # Use the configurable polling interval
     except KeyboardInterrupt:
         observer.stop()
     observer.join()

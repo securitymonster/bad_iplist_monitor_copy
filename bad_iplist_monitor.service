@@ -1,0 +1,11 @@
+[Unit]
+Description=Your Python Script Service
+After=network.target
+
+[Service]
+User=youruser
+ExecStart=/usr/bin/python3 /path/to/badiplist_monitor_copy.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
